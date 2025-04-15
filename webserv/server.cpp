@@ -13,6 +13,7 @@ int main() {
     addr.sin_addr.s_addr = INADDR_ANY;
     bind(serverfd , (struct sockaddr *)&addr,sizeof(addr));
     listen(serverfd,5);
+    
     int new_socket = accept(serverfd, (struct sockaddr *)&addr, (socklen_t*)&addr);
     read(new_socket, buffer, BUFFER_SIZE);
         printf("Client message: %s\n", buffer);
